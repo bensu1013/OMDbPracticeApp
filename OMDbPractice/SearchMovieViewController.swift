@@ -9,13 +9,16 @@
 import UIKit
 import Foundation
 
-class SearchMovieViewController: UIViewController, UITextFieldDelegate {
+class SearchMovieViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var titleTextField: UITextField!
     
     @IBOutlet weak var searchButton: UIButton!
+    
+    @IBOutlet weak var errorLabel: UILabel!
+    
     
     let dataStore = MovieDataStore.sharedInstance
     
@@ -27,7 +30,8 @@ class SearchMovieViewController: UIViewController, UITextFieldDelegate {
         searchButton.alpha = 0.5
         searchButton.isUserInteractionEnabled = false
         titleTextField.becomeFirstResponder()
-        
+        errorLabel.alpha = 0.0
+        errorLabel.text = "Sorry, couldn't find the movie."
     }
 
     @IBAction func cancelButtonAction(_ sender: UIButton) {
@@ -41,40 +45,28 @@ class SearchMovieViewController: UIViewController, UITextFieldDelegate {
         searchMovieData { success in
             if success {
                 DispatchQueue.main.async {
-                    self.dismiss(animated: true) {  }
+                    self.dismiss(animated: true, completion: { 
+                        
+                    })
                 }
+
                 
             } else {
-                print(1)
-                self.titleLabel.text = "Couldn't find movie!"
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.6, animations: {
+                        print("alpha")
+                        self.errorLabel.alpha = 1.0
+                    }) {completed in
+                        print("blank")
+                        if completed { self.errorLabel.alpha = 0.0 }
+                    }
+                }
+                
+                
             }
         }
     }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.text != "" {
-            searchButton.alpha = 1
-            searchButton.isUserInteractionEnabled = true
-        } else {
-            searchButton.alpha = 0.5
-            searchButton.isUserInteractionEnabled = false
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.text != "" {
-            searchButton.alpha = 1
-            searchButton.isUserInteractionEnabled = true
-        } else {
-            searchButton.alpha = 0.5
-            searchButton.isUserInteractionEnabled = false
-        }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
+
     
     func searchMovieData(completion: @escaping (Bool) -> () ) {
         let title = changeInputToString()
@@ -105,7 +97,24 @@ class SearchMovieViewController: UIViewController, UITextFieldDelegate {
 
 
 
-
+extension SearchMovieViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text != "" {
+            searchButton.alpha = 1
+            searchButton.isUserInteractionEnabled = true
+        } else {
+            searchButton.alpha = 0.5
+            searchButton.isUserInteractionEnabled = false
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+}
 
 
 

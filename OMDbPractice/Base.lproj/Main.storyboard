@@ -136,6 +136,11 @@
                                     <action selector="cancelButtonAction:" destination="0af-JD-Wuh" eventType="touchUpInside" id="aR3-Nk-dHb"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXj-UU-R4X" userLabel="errorLabel">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.074743433492410638" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.59634843312244512" green="0.69793366618172992" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -145,20 +150,25 @@
                             <constraint firstItem="uID-v4-eka" firstAttribute="height" secondItem="CEy-It-qfg" secondAttribute="height" multiplier="0.075" id="255-oe-e66"/>
                             <constraint firstItem="ES9-kg-BBI" firstAttribute="height" secondItem="CEy-It-qfg" secondAttribute="height" multiplier="0.075" id="2AB-2X-shC"/>
                             <constraint firstItem="b2k-3w-LOS" firstAttribute="width" secondItem="CEy-It-qfg" secondAttribute="width" multiplier="0.75" id="7QN-1s-4l7"/>
+                            <constraint firstItem="cXj-UU-R4X" firstAttribute="height" secondItem="CEy-It-qfg" secondAttribute="height" multiplier="0.06" id="9mA-If-lIa"/>
                             <constraint firstItem="uID-v4-eka" firstAttribute="width" secondItem="CEy-It-qfg" secondAttribute="width" multiplier="0.25" id="A6A-Pk-Nr6"/>
                             <constraint firstItem="ES9-kg-BBI" firstAttribute="centerY" secondItem="CEy-It-qfg" secondAttribute="centerY" multiplier="1.2" id="CR6-qU-Vj2"/>
                             <constraint firstItem="b2k-3w-LOS" firstAttribute="height" secondItem="CEy-It-qfg" secondAttribute="height" multiplier="0.06" id="DrM-wg-FdW"/>
+                            <constraint firstItem="cXj-UU-R4X" firstAttribute="centerY" secondItem="CEy-It-qfg" secondAttribute="centerY" multiplier="0.6" id="Mrz-Fl-q6a"/>
                             <constraint firstItem="ES9-kg-BBI" firstAttribute="width" secondItem="CEy-It-qfg" secondAttribute="width" multiplier="0.25" id="RfR-Jc-Xjl"/>
                             <constraint firstItem="b2k-3w-LOS" firstAttribute="centerX" secondItem="CEy-It-qfg" secondAttribute="centerX" id="Z4Q-ys-7H9"/>
                             <constraint firstItem="b2k-3w-LOS" firstAttribute="centerY" secondItem="CEy-It-qfg" secondAttribute="centerY" multiplier="0.4" id="ZEJ-Av-ViD"/>
                             <constraint firstItem="ES9-kg-BBI" firstAttribute="centerX" secondItem="CEy-It-qfg" secondAttribute="centerX" id="dkm-6n-b8A"/>
                             <constraint firstItem="p92-zi-WgG" firstAttribute="centerX" secondItem="CEy-It-qfg" secondAttribute="centerX" id="hsB-vy-5xV"/>
                             <constraint firstItem="p92-zi-WgG" firstAttribute="height" secondItem="CEy-It-qfg" secondAttribute="height" multiplier="0.06" id="k8h-DY-X0R"/>
+                            <constraint firstItem="cXj-UU-R4X" firstAttribute="centerX" secondItem="CEy-It-qfg" secondAttribute="centerX" id="qMx-Sj-SVa"/>
+                            <constraint firstItem="cXj-UU-R4X" firstAttribute="width" secondItem="CEy-It-qfg" secondAttribute="width" multiplier="0.75" id="u7I-ip-Qfw"/>
                             <constraint firstItem="uID-v4-eka" firstAttribute="centerX" secondItem="CEy-It-qfg" secondAttribute="centerX" id="zac-kn-rfZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="hYV-ke-Pio"/>
                     <connections>
+                        <outlet property="errorLabel" destination="cXj-UU-R4X" id="Kdq-GD-m3M"/>
                         <outlet property="searchButton" destination="uID-v4-eka" id="35a-CM-y8w"/>
                         <outlet property="titleLabel" destination="b2k-3w-LOS" id="xWz-Gm-zz3"/>
                         <outlet property="titleTextField" destination="p92-zi-WgG" id="RWe-DT-GOs"/>
@@ -184,7 +194,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugG-U5-LQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-639.20000000000005" y="96.7016491754123"/>
+            <point key="canvasLocation" x="-772" y="97"/>
         </scene>
     </scenes>
 </document>
